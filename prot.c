@@ -17,3 +17,13 @@ long redLedIntervalbater = 2000; // Tempo em ms do bater a ser executado
 int fase;
 boolean moolho;
 boolean baater;
+void setup() 
+{
+  
+  pinMode(bater, OUTPUT);
+  pinMode(saida, OUTPUT);
+  pinMode(entrada, OUTPUT);
+  pinMode(molho, OUTPUT);
+  pinMode(nivel, INPUT);
+ 
+}
