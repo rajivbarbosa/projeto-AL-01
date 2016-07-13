@@ -27,3 +27,29 @@ void setup()
   pinMode(nivel, INPUT);
  
 }
+void loop()
+{
+  
+  int niivel;
+ 
+  
+  niivel=digitalRead(nivel);
+   
+  if(fase == 0)
+  {
+    fase=1;
+  }
+  
+  
+  if(fase == 1)
+  {
+    digitalWrite(entrada,1);
+   
+    if(niivel==1)
+    {
+      digitalWrite(entrada,0);
+      fase = 2;
+    }
+  }
+
+
