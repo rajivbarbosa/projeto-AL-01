@@ -1,0 +1,10 @@
+void setup() 
+{
+  
+  pinMode(bater, OUTPUT);
+  pinMode(saida, OUTPUT);
+  pinMode(entrada, OUTPUT);
+  pinMode(molho, OUTPUT);
+  pinMode(nivel, INPUT);
+ 
+ }
