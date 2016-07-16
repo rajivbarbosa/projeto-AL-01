@@ -52,4 +52,32 @@ void loop()
     }
   }
 
+ if(fase==2)
+  {
+
+
+
+  unsigned long currentMillis = millis();    //Tempo atual em ms
+  if(baater == 0)
+  {
+   baater=1;
+   digitalWrite(bater, 1);  
+   previousMillisbater = currentMillis;
+  }
+  currentMillis = millis();    //Tempo atual em ms
+            //Lógica de verificação do tempo
+    if (currentMillis - previousMillisbater > redLedIntervalbater) 
+      { 
+         baater=0;
+         digitalWrite(bater, 0); 
+         fase=3;
+      }
+
+
+    
+  
+  }
+
+
+
 
