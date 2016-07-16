@@ -77,6 +77,26 @@ void loop()
     
   
   }
+  if(fase==3)
+  {
+    unsigned long currentMillis = millis();    //Tempo atual em ms
+  if(moolho == 0)
+  {
+   moolho=1;
+   digitalWrite(molho, 1);  
+   previousMillis = currentMillis;
+  }
+  currentMillis = millis();    //Tempo atual em ms
+            //Lógica de verificação do tempo
+    if (currentMillis - previousMillis > redLedInterval) 
+      { 
+         moolho=0;
+         digitalWrite(molho, 0); 
+         fase=4;
+      }
+
+   
+  }
 
 
 
