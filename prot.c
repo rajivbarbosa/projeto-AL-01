@@ -45,6 +45,14 @@
 
    
   }
+  if(fase==4)
+  {
+  digitalWrite(bater, HIGH);  
+  delay(2000);              
+  digitalWrite(bater, LOW);    
+  fase=5;
+  }
+
 
 
 
