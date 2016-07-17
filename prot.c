@@ -52,6 +52,26 @@
   digitalWrite(bater, LOW);    
   fase=5;
   }
+  if(fase == 5)
+  {
+    digitalWrite(saida,1);
+   
+    if(niivel==0)
+    {
+      digitalWrite(saida,0);
+      fase = 6;
+    }
+  }
+  if (fase==6)
+  { 
+    delay(1000);
+    digitalWrite(saida,1);
+    digitalWrite(entrada,1);
+    digitalWrite(bater, 1);  
+    digitalWrite(molho, 1); 
+  }
+           
+}
 
 
 
