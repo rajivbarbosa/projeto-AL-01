@@ -20,6 +20,20 @@ long redLedIntervalbater2 = 2000; // Tempo em ms do programa bater2 a ser execut
 long redLedIntervalbater3 = 2000; // Tempo em ms do programa bater3 a ser executado
 long redLedIntervalbater4 = 2000; // Tempo em ms do programa bater4 a ser executado
 long redLedIntervalbater5 = 2000; // Tempo em ms do programa bater5 a ser executado
+int fase;                          //variavel que indica a fase que a maquina esta
+int nivel;                        //variavel que indica o nivel
+boolean molho;                   //variavel que indica se esta em molho
+boolean bater;                       //variavel que indica se a maquina esta em rotação
+void setup() 
+{
+  
+  pinMode(pinbater, OUTPUT);
+  pinMode(pinsaida, OUTPUT);
+  pinMode(pinentrada, OUTPUT);
+  pinMode(pinmolho, OUTPUT);
+  pinMode(pinnivel, INPUT);
+ 
+}
 
 
 
