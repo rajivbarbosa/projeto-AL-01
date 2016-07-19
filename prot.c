@@ -34,6 +34,55 @@ void setup()
   pinMode(pinnivel, INPUT);
  
 }
+void loop()
+{
+  
+  
+ 
+  
+  nivel=digitalRead(pinnivel);
+   
+  if(fase == 0)     //inicia o programa assim que se liga o arduino(modificar para ligar apos selecionar qual programa deseja)
+  {
+    fase=1;
+  }
+  
+  
+  if(fase == 1) //se esta na fase 1 liga o solenoide ,se esta na fase 1 e o nivel esta cheio disliga o solenoide e finaliza a fase e vai para fase 2
+  {
+    digitalWrite(pinentrada,1);
+   
+    if(nivel==1)
+    {
+      digitalWrite(pinentrada,0);
+      fase = 2;
+    }
+  }
 
 
 
+ if(fase==2) //liga a rotação da maquina por um determinado tempo e dps passa para fase 3
+  {
+
+
+
+  unsigned long currentMillis = millis();    //Tempo atual em ms
+  if(bater == 0)
+  {
+   bater=1;
+   digitalWrite(pinbater, 1);  
+   previousMillisbater = currentMillis;
+  }
+  currentMillis = millis();    //Tempo atual em ms
+            //Lógica de verificação do tempo
+    if (currentMillis - previousMillisbater > redLedIntervalbater) 
+      { 
+         bater=0;
+         digitalWrite(pinbater, 0); 
+         fase=3;
+      }
+
+
+    
+  
+  }
