@@ -34,6 +34,30 @@ void setup()
   pinMode(pinnivel, INPUT);
  
 }
+void loop()
+{
+  
+  
+ 
+  
+  nivel=digitalRead(pinnivel);
+   
+  if(fase == 0)     //inicia o programa assim que se liga o arduino(modificar para ligar apos selecionar qual programa deseja)
+  {
+    fase=1;
+  }
+  
+  
+  if(fase == 1) //se esta na fase 1 liga o solenoide ,se esta na fase 1 e o nivel esta cheio disliga o solenoide e finaliza a fase e vai para fase 2
+  {
+    digitalWrite(pinentrada,1);
+   
+    if(nivel==1)
+    {
+      digitalWrite(pinentrada,0);
+      fase = 2;
+    }
+  }
 
 
 
