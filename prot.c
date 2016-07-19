@@ -61,3 +61,28 @@ void loop()
 
 
 
+ if(fase==2) //liga a rotação da maquina por um determinado tempo e dps passa para fase 3
+  {
+
+
+
+  unsigned long currentMillis = millis();    //Tempo atual em ms
+  if(bater == 0)
+  {
+   bater=1;
+   digitalWrite(pinbater, 1);  
+   previousMillisbater = currentMillis;
+  }
+  currentMillis = millis();    //Tempo atual em ms
+            //Lógica de verificação do tempo
+    if (currentMillis - previousMillisbater > redLedIntervalbater) 
+      { 
+         bater=0;
+         digitalWrite(pinbater, 0); 
+         fase=3;
+      }
+
+
+    
+  
+  }
