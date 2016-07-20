@@ -86,3 +86,65 @@ void loop()
     
   
   }
+  
+  if(fase==3) //deixa no molho por um certo tempo depois passa para fase 4
+  {
+    unsigned long currentMillis = millis();    //Tempo atual em ms
+  if(molho == 0)
+  {
+   molho=1;
+   digitalWrite(pinmolho, 1);  
+   previousMillismolho = currentMillis;
+  }
+  currentMillis = millis();    //Tempo atual em ms
+            //Lógica de verificação do tempo
+    if (currentMillis - previousMillismolho > redLedIntervalmolho) 
+      { 
+         molho=0;
+         digitalWrite(pinmolho, 0); 
+         fase=4;
+      }
+
+   
+  }
+if(fase==4) //liga a rotação da maquina por um determinado tempo e dps passa para fase 5
+ {
+
+
+
+  unsigned long currentMillis = millis();    //Tempo atual em ms
+  if(bater == 0)
+  {
+   bater=1;
+   digitalWrite(pinbater, 1);  
+   previousMillisbater2 = currentMillis;
+  }
+  currentMillis = millis();    //Tempo atual em ms
+            //Lógica de verificação do tempo
+    if (currentMillis - previousMillisbater2 > redLedIntervalbater2) 
+      { 
+         bater=0;
+         digitalWrite(pinbater, 0); 
+         fase=5;
+      }
+
+
+    
+  
+  }
+
+
+
+ 
+  nivel=digitalRead(pinnivel); //atualiza o nivel que a maquina esta
+  
+  if(fase == 5) //mesma logica da fase 1 mais com o objetivo de secar a maquina
+  {
+    digitalWrite(pinsaida,1); // liga a bomba de saida
+   
+    if(nivel==0)
+    {
+      digitalWrite(pinsaida,0); // desliga a bomba de saida
+      fase = 6;
+    }
+  }
