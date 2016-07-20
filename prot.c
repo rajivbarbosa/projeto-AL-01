@@ -86,3 +86,25 @@ void loop()
     
   
   }
+  
+  if(fase==3) //deixa no molho por um certo tempo depois passa para fase 4
+  {
+    unsigned long currentMillis = millis();    //Tempo atual em ms
+  if(molho == 0)
+  {
+   molho=1;
+   digitalWrite(pinmolho, 1);  
+   previousMillismolho = currentMillis;
+  }
+  currentMillis = millis();    //Tempo atual em ms
+            //Lógica de verificação do tempo
+    if (currentMillis - previousMillismolho > redLedIntervalmolho) 
+      { 
+         molho=0;
+         digitalWrite(pinmolho, 0); 
+         fase=4;
+      }
+
+   
+  }
+
