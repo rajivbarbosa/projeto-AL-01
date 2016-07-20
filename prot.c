@@ -107,4 +107,44 @@ void loop()
 
    
   }
+if(fase==4) //liga a rotação da maquina por um determinado tempo e dps passa para fase 5
+ {
 
+
+
+  unsigned long currentMillis = millis();    //Tempo atual em ms
+  if(bater == 0)
+  {
+   bater=1;
+   digitalWrite(pinbater, 1);  
+   previousMillisbater2 = currentMillis;
+  }
+  currentMillis = millis();    //Tempo atual em ms
+            //Lógica de verificação do tempo
+    if (currentMillis - previousMillisbater2 > redLedIntervalbater2) 
+      { 
+         bater=0;
+         digitalWrite(pinbater, 0); 
+         fase=5;
+      }
+
+
+    
+  
+  }
+
+
+
+ 
+  nivel=digitalRead(pinnivel); //atualiza o nivel que a maquina esta
+  
+  if(fase == 5) //mesma logica da fase 1 mais com o objetivo de secar a maquina
+  {
+    digitalWrite(pinsaida,1); // liga a bomba de saida
+   
+    if(nivel==0)
+    {
+      digitalWrite(pinsaida,0); // desliga a bomba de saida
+      fase = 6;
+    }
+  }
