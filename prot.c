@@ -148,3 +148,39 @@ if(fase==4) //liga a rotação da maquina por um determinado tempo e dps passa p
       fase = 6;
     }
   }
+
+nivel=digitalRead(pinnivel); // atualiza o nivel de agua da maquina
+  
+  if(fase == 6) //se esta na fase 6 liga o solenoide ,se esta na fase 6 e o nivel esta cheio disliga o solenoide e finaliza a fase e vai para fase 7
+  {
+    digitalWrite(pinentrada,1);  // liga solenoide de entrada
+   
+    if(nivel==1)
+    {
+      digitalWrite(pinentrada,0); // desliga solenoide de entrada
+      fase = 7;
+    }
+  }
+
+
+
+if(fase==7) //liga a rotação da maquina por um determinado tempo e dps passa para fase 8
+  {
+
+
+
+  unsigned long currentMillis = millis();    //Tempo atual em ms
+  if(bater == 0)
+  {
+   bater=1;
+   digitalWrite(pinbater, 1);  
+   previousMillisbater3 = currentMillis;
+  }
+  currentMillis = millis();    //Tempo atual em ms
+            //Lógica de verificação do tempo
+    if (currentMillis - previousMillisbater3 > redLedIntervalbater3) 
+      { 
+         bater=0;
+         digitalWrite(pinbater, 0); 
+         fase=8;
+      }
